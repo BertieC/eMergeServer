@@ -1,0 +1,22 @@
+{
+  "name": "emerge",
+  "version": "1.0.0",
+  "description": "The eMerge server",
+  "main": "eMerge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BertieC/eMergeServer.git"
+  },
+  "author": "Bertie Coetzee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BertieC/eMergeServer/issues"
+  },
+  "homepage": "https://github.com/BertieC/eMergeServer#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
