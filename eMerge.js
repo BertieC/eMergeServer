@@ -31,6 +31,37 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
     console.log("added new User...");
   });
 
+//Adding a new emergency service
+  app.get("/addService", function(req, res){
+  var sname = req.param("sname");
+  var town = req.param("town");
+  var emphone = req.param("emphone");
+  var emphonealt = req.param("emphonealt");
+  var emtype = req.param("emtype");
+  var residence = req.param("residence");
+  var lat = req.param("lat");
+  var long = req.param("long");
+  var usrRef = myFirebaseRef.child("services").child(sname);
+  var comLoc = math.sum(lat, long);
+
+  usrRef.set(
+    {
+    "town":town,
+    "emphone":emphone,
+    "emphonealt":emphonealt,
+    "emtype":emtype,
+    "residence":residence,
+    "location":{
+      "lat":lat,
+      "long":long
+    },
+    "comLoc":comLoc
+  });
+  console.log('*************************');
+  console.log("*   added new Service   *");
+  console.log('*************************');
+});
+
 var server = app.listen(port, function(){
   console.log("Listening on port " + port);
 });
