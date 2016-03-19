@@ -2,7 +2,7 @@ console.log("*******************************************************************
 console.log("*                       Starting Server                           *")
 console.log("*******************************************************************")
 
-const PORT=5000;
+var port = process.env.PORT || 8080;
 var http = require('http');
 var express = require("express");
 var app = express();
@@ -11,6 +11,6 @@ var app = express();
     res.send("Test works");
   });
 
-var server = app.listen(PORT, function(){
-  console.log("Listening on port " + PORT);
+var server = app.listen(port, function(){
+  console.log("Listening on port " + port);
 });
