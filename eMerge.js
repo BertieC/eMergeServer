@@ -12,7 +12,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 var serviceIndex;
 
 myFirebaseRef.child("servicesIndex").once('value', function(snapshot){
-   serviceIndex = snapshot.val()
+   serviceIndex = snapshot.val();
  });
 
  console.log("ServiceIndex: " + ServiceIndex);
