@@ -9,10 +9,10 @@ var geolib = require("geolib");
 var app = express();
 var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
-var serviceIndex = 0;
+var policeIndex;
 
-myFirebaseRef.child("servicesIndex").once('value', function(snapshot){
-   serviceIndex = snapshot.val();
+myFirebaseRef.child("serviceIndex").once('value', function(snapshot){
+   policeIndex = snapshot.val();
  });
 
  console.log("ServiceIndex: " + serviceIndex);
