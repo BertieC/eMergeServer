@@ -12,7 +12,6 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 
 //just an test call for debugging
   app.get("/test", function(req, res){
-    res.send("Test works");
     var testIndex;
     var testinfo;
 
