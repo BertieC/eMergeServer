@@ -52,28 +52,29 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
      console.log("snapshot value: " + index);
      newIndex = index + 1;
      console.log("newIndex: " + newIndex);
+
+     var usrRef = myFirebaseRef.child("services").child(emtype).child(newIndex);
+     var indexRef = myFirebaseRef.child("services").child(emtype).child("serviceIndex");
+
+     indexRef.set(newIndex);
+
+       usrRef.set(
+         {
+           "service":service,
+           "town":town,
+           "emphone":emphone,
+           "emphonealt":emphonealt,
+           "emtype":emtype,
+           "residence":residence,
+           "location":{
+             "lat":lat,
+             "long":long
+             },
+         });
+     console.log('*************************');
+     console.log("*   added new Service   *");
+     console.log('*************************');
    });
-  var usrRef = myFirebaseRef.child("services").child(emtype).child(newIndex);
-  var indexRef = myFirebaseRef.child("services").child(emtype).child("serviceIndex");
-
-  indexRef.set(newIndex);
-
-    usrRef.set(
-      {
-        "service":service,
-        "town":town,
-        "emphone":emphone,
-        "emphonealt":emphonealt,
-        "emtype":emtype,
-        "residence":residence,
-        "location":{
-          "lat":lat,
-          "long":long
-          },
-      });
-  console.log('*************************');
-  console.log("*   added new Service   *");
-  console.log('*************************');
 });
 
 var server = app.listen(port, function(){
