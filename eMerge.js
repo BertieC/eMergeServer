@@ -11,11 +11,11 @@ var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 var serviceIndex;
 
-/*myFirebaseRef.child("servicesIndex").once('value', function(snapshot){
+myFirebaseRef.child("servicesIndex").once('value', function(snapshot){
    serviceIndex = snapshot.val()
  });
 
- console.console.log("ServiceIndex: " + ServiceIndex);*/
+ console.console.log("ServiceIndex: " + ServiceIndex);
 
 //just an test call for debugging
   app.get("/test", function(req, res){
