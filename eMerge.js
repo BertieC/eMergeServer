@@ -24,6 +24,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
        myFirebaseRef.child("services").child("police").child("serviceIndex").child(0).once('value', function(snapshot){
           testinfo = snapshot.val();
           res.send(testinfo);
+          });
      });
   });
 
