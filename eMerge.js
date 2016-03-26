@@ -15,7 +15,7 @@ myFirebaseRef.child("servicesIndex").once('value', function(snapshot){
    serviceIndex = snapshot.val()
  });
 
- console.console.log("ServiceIndex: " + ServiceIndex);
+ console.log("ServiceIndex: " + ServiceIndex);
 
 //just an test call for debugging
   app.get("/test", function(req, res){
