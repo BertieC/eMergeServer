@@ -13,6 +13,18 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 //just an test call for debugging
   app.get("/test", function(req, res){
     res.send("Test works");
+    var testIndex;
+    var testinfo;
+
+    myFirebaseRef.child("services").child("police").child("serviceIndex").once('value', function(snapshot){
+       testIndex = snapshot.val();
+
+       res.send("Index: "+testIndex);
+
+       myFirebaseRef.child("services").child("police").child("serviceIndex").child(0).once('value', function(snapshot){
+          testinfo = snapshot.val();
+          res.send(testinfo);
+     });
   });
 
 //Adds new users to the database "Registers them"
