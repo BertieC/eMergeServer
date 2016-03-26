@@ -12,11 +12,9 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 
 //just an test call for debugging
   app.get("/test", function(req, res){
-    var count = 0;
   myFirebaseRef.child("services").child("police").on("value", function(snapshot) {
-    snapshot.forEach(function(dataShot) {
+    snapshot.0.forEach(function(dataShot) {
       console.log(dataShot.emtype);
-      count++;
       });
     });
   });
