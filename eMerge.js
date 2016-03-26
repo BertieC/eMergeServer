@@ -9,13 +9,6 @@ var geolib = require("geolib");
 var app = express();
 var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
-var policeIndex;
-
-myFirebaseRef.child("serviceIndex").once('value', function(snapshot){
-   policeIndex = snapshot.val();
- });
-
- console.log("ServiceIndex: " + serviceIndex);
 
 //just an test call for debugging
   app.get("/test", function(req, res){
@@ -51,19 +44,30 @@ myFirebaseRef.child("serviceIndex").once('value', function(snapshot){
   var residence = req.param("residence");
   var lat = req.param("lat");
   var long = req.param("long");
-  var usrRef = myFirebaseRef.child("services").child(serviceName);
+  var index;
+
+  myFirebaseRef.child("services").child(emtype).child("ServiceIndex").once('value', function(snapshot){
+     index = snapshot.val();
+     console.log("snapshot value: " + index);
+   });
+   var newIndex = index + 1;
+  var usrRef = myFirebaseRef.child("services").child(emtype).child(newIndex);
+  var indexRef = myFirebaseRef.child("services").child(emtype).child("ServiceIndex");
+
+  indexRef.set(newIndex);
 
     usrRef.set(
       {
-      "town":town,
-      "emphone":emphone,
-      "emphonealt":emphonealt,
-      "emtype":emtype,
-      "residence":residence,
-      "location":{
-        "lat":lat,
-        "long":long
-        },
+        "serviceName":serviceName,
+        "town":town,
+        "emphone":emphone,
+        "emphonealt":emphonealt,
+        "emtype":emtype,
+        "residence":residence,
+        "location":{
+          "lat":lat,
+          "long":long
+          },
       });
   console.log('*************************');
   console.log("*   added new Service   *");
