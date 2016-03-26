@@ -64,7 +64,6 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
            "town":town,
            "emphone":emphone,
            "emphonealt":emphonealt,
-           "emtype":emtype,
            "residence":residence,
            "location":{
              "lat":lat,
