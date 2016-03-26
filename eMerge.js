@@ -5,6 +5,7 @@ console.log("*******************************************************************
 var port = process.env.PORT || 8080;
 var http = require('http');
 var express = require("express");
+var geolib = require("geolib");
 var app = express();
 var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
