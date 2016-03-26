@@ -45,12 +45,14 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
   var lat = req.param("lat");
   var long = req.param("long");
   var index;
+  var newIndex;
 
   myFirebaseRef.child("services").child(emtype).child("serviceIndex").once('value', function(snapshot){
      index = snapshot.val();
      console.log("snapshot value: " + index);
+     newIndex = index + 1;
+     console.log("newIndex: " + newIndex);
    });
-   var newIndex = index + 1;
    console.log("newIndex: " + newIndex);
   var usrRef = myFirebaseRef.child("services").child(emtype).child(newIndex);
   var indexRef = myFirebaseRef.child("services").child(emtype).child("serviceIndex");
