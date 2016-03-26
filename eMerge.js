@@ -15,7 +15,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
     var count = 0;
   myFirebaseRef.child("services").child("police").on("value", function(snapshot) {
     snapshot.forEach(function(dataShot) {
-      console.log(dataShot.count.emtype);
+      console.log(dataShot.emtype);
       count++;
       });
     });
