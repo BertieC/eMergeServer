@@ -12,8 +12,8 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 
 //just an test call for debugging
   app.get("/test", function(req, res){
-  myFirebaseRef.child("services").child("police").on("value", function(snapshot) {
-    snapshot.0.forEach(function(dataShot) {
+  myFirebaseRef.child("services").child("police").child("0").on("value", function(snapshot) {
+    snapshot.forEach(function(dataShot) {
       console.log(dataShot.emtype);
       });
     });
