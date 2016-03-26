@@ -36,7 +36,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 
 //Adding a new emergency service
   app.get("/addService", function(req, res){
-  var serviceName = req.param("serviceName");
+  var service = req.param("service");
   var town = req.param("town");
   var emphone = req.param("emphone");
   var emphonealt = req.param("emphonealt");
@@ -58,7 +58,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 
     usrRef.set(
       {
-        "serviceName":serviceName,
+        "service":service,
         "town":town,
         "emphone":emphone,
         "emphonealt":emphonealt,
