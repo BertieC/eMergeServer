@@ -17,6 +17,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
     snapshot.forEach(function(dataShot) {
       console.log(dataShot.count.emtype);
       count++;
+      });
     });
   });
 
