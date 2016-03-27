@@ -24,14 +24,14 @@ var polCoordinates = [];
   myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
     var services = snapshot.val();
 
-  /*  for(var x in services){
-      polCoordinates.push(services[x].location);
-    } */
+  for(var x in services){
+      polCoordinates.push(services[x].service:services[x].location);
+    }
 
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
 
     //var nearestLoc = geolib.findNearest({latitude: usrLat, longitude: usrLong}, services, 1);
-    res.send("Distance from Current: "+services);
+    res.send("Distance from Current: "+polCoordinates[3]);
     });
   });
 
