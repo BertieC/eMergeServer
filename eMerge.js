@@ -30,9 +30,9 @@ var polCoordinates = [];
 
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
 
-    var nearestCoo = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
+    var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
 
-    res.send("Distance from Current: "+nearestLoc.longitude);
+    res.send("Distance from Current: "+nearestLoc.latitude);
     });
   });
 
