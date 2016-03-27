@@ -28,7 +28,7 @@ var polCoordinates = [];
       polCoordinates.push(services[x].location);
     }
 
-    var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong}, polCoordinates[0]);
+    var distFromCurrent = geolib.getDistance({9,4}, {10,5});
 
     res.send("Distance from Current: "+distFromCurrent);
     });
