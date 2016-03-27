@@ -25,7 +25,7 @@ var polCoordinates = [];
     var services = snapshot.val();
 
   for(var x in services){
-      polCoordinates.push(services[x].service+":"+services[x].location);
+      polCoordinates.push(  '"'+services[x].service+'": {latitude: '+services[x].location.latitude+', longitude: '+services[x].location.longitude+'},');
     }
 
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
