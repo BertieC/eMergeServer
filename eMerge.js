@@ -17,9 +17,9 @@ var polCoordinates = [];
 
   //User emergency calls
   app.get("/emrg", function(req, res){
-    var usrNum = req.("phone");
-    var usrLat = req.("lat");
-    var usrLong = req.("long");
+    var usrNum = req.param("phone");
+    var usrLat = req.param("lat");
+    var usrLong = req.param("long");
 
   myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
     var services = snapshot.val();
