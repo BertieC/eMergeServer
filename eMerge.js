@@ -28,8 +28,7 @@ var polCoordinates = [];
       polCoordinates.push(services[x].location);
     }
 
-    var distFromCurrent = geolib.getDistance({"lat":9.0, "long":4.0}, {"lat":10.0, "long":5.0});
-
+    var distFromCurrent = geolib.getDistance({latitude: 51.5103, longitude: 7.49347},{latitude: "51° 31' N", longitude: "7° 28' E"});
     res.send("Distance from Current: "+distFromCurrent);
     });
   });
