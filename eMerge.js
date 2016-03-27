@@ -14,7 +14,7 @@ var polCoordinates = [];
   app.get("/test", function(req, res){
   myFirebaseRef.child("services").child("police").child("0").once("value", function(snapshot) {
     var testVar = snapshot.val();
-    polCoordinates.push(testVar.location));
+    polCoordinates.push(testVar.location);
     res.send(polCoordinates[0]);
     });
   });
