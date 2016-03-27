@@ -31,8 +31,9 @@ var polCoordinates = [];
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
 
     var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
+    var lat = nearestLoc.latitude;
 
-      myFirebaseRef.child("services").child("police").child("location").orderByChild("latitude").equalTo(nearestLoc.latitude).on("value", function(snapshot) {
+      myFirebaseRef.child("services").child("police").child("location").orderByChild("latitude").equalTo(lat).on("value", function(snapshot) {
         console.log(snapshot.key());
       });
     });
