@@ -12,16 +12,28 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 var polCoordinates = [];
 //just an test call for debugging
   app.get("/test", function(req, res){
-  myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
-    var testVar = snapshot.val();
+    res.send("**********  Server Test **********");
+  });
 
-    for(var x in testVar){
-      polCoordinates.push(testVar[x].location);
+  //User emergency calls
+  app.get("/emrg", function(req, res){
+    var usrNum = req.("phone");
+    var usrLat = req.("lat");
+    var usrLong = req.("long");
+
+  myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
+    var services = snapshot.val();
+
+    for(var x in services){
+      polCoordinates.push(services[x].location);
     }
 
-    //polCoordinates.push(testVar.location);
-    //res.send(polCoordinates[0]+"*************************"+polCoordinates[1]+"***********************"+polCoordinates[]);
-    res.send(polCoordinates[1]);
+    var current = {lat: 10, lng: 20}
+    var coords = [{lat: 5, lng: 5}, {lat: 10.2, lng: 19.6}, {lat: 60, lng: 10}];
+
+    var distFromCurrent = geolib.getDistance({lat: usrLat, long: usrLong}, polCoordinates)};
+
+    res.send("Distance from Current: "+distFromCurrent);
     });
   });
 
