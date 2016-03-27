@@ -34,7 +34,7 @@ var polCoordinates = [];
     var lat = nearestLoc.latitude;
 
       myFirebaseRef.child("services").child("police").child("location").child("latitude").equalTo(lat).on("value", function(snapshot) {
-        console.log(snapshot.val();
+        console.log(snapshot.val());
       });
     });
   });
