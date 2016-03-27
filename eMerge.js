@@ -16,7 +16,7 @@ var polCoordinates = [];
     var testVar = snapshot.val();
 
     for(var x in testVar){
-      polCoordinates.push(parsed[x].location);
+      polCoordinates.push(testVar[x].location);
     }
 
     //polCoordinates.push(testVar.location);
