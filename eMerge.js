@@ -12,10 +12,11 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
 var polCoordinates = [];
 //just an test call for debugging
   app.get("/test", function(req, res){
-  myFirebaseRef.child("services").child("police").child("0").once("value", function(snapshot) {
+  myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
     var testVar = snapshot.val();
-    polCoordinates.push(testVar.location);
-    res.send(polCoordinates[0]);
+    //polCoordinates.push(testVar.location);
+    //res.send(polCoordinates[0]);
+    res.send(testVar);
     });
   });
 
