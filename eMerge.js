@@ -33,7 +33,7 @@ var polCoordinates = [];
     var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
     var lat = nearestLoc.latitude;
 
-      myFirebaseRef.child("services").child("police").child("location").orderByChild("latitude").equalTo(lat).on("value", function(snapshot) {
+      myFirebaseRef.child("services").child("police").orderByChild("latitude").equalTo(lat).on("value", function(snapshot) {
         console.log(snapshot.key());
       });
     });
