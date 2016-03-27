@@ -28,12 +28,10 @@ var polCoordinates = [];
       polCoordinates.push(services[x].location);
     } */
 
-    polCoordinates.push(services.location);
-
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
 
-    var nearestLoc = geolib.findNearest({latitude: usrLat, longitude: usrLong}, {polCoordinates}, 1);
-    res.send("Distance from Current: "+polCoordinates);
+    var nearestLoc = geolib.findNearest({latitude: usrLat, longitude: usrLong}, services, 1);
+    res.send("Distance from Current: "+services);
     });
   });
 
