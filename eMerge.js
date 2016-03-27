@@ -20,7 +20,7 @@ var polCoordinates = [];
     }
 
     //polCoordinates.push(testVar.location);
-    res.send(polCoordinates[0]);
+    res.send(polCoordinates[0]+"*************************"+polCoordinates[1]+"***********************"+polCoordinates[2]);
     });
   });
 
