@@ -14,7 +14,7 @@ var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
   app.get("/test", function(req, res){
   myFirebaseRef.child("services").child("police").child("0").once("value", function(snapshot) {
     var testVar = snapshot.val();
-    res.send(testVar.emtype);
+    res.send(testVar.location);
     });
   });
 
