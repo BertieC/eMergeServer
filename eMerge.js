@@ -15,15 +15,12 @@ var polCoordinates = [];
   myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
     var testVar = snapshot.val();
 
-    var parsed = JSON.parse(testVar);
-
-    /*for(var x in parsed){
-      arr.push(parsed[x]);
-    }*/
+    for(var x in testVar){
+      polCoordinates.push(parsed[x].location);
+    }
 
     //polCoordinates.push(testVar.location);
-    //res.send(polCoordinates[0]);
-    res.send(parsed);
+    res.send(polCoordinates[0]);
     });
   });
 
