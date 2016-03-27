@@ -29,9 +29,9 @@ var polCoordinates = [];
     }
 
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
-
-    var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, {polCoordinates});
-    res.send("Distance from Current: "+nearestLoc);
+    polCoordinates.push({latitude:usrLat, longitude:usrLong});
+    //var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
+    res.send("Distance from Current: "+polCoordinates);
     });
   });
 
