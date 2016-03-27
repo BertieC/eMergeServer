@@ -85,8 +85,8 @@ var polCoordinates = [];
            "emphonealt":emphonealt,
            "residence":residence,
            "location":{
-             "lat":lat,
-             "long":long
+             "latitude":lat,
+             "longitude":long
              },
          });
      console.log('*************************');
