@@ -9,7 +9,7 @@ var geolib = require("geolib");
 var app = express();
 var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
-
+var polCoordinates = [];
 //just an test call for debugging
   app.get("/test", function(req, res){
   myFirebaseRef.child("services").child("police").child("0").once("value", function(snapshot) {
