@@ -24,9 +24,11 @@ var polCoordinates = [];
   myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
     var services = snapshot.val();
 
-    for(var x in services){
+  /*  for(var x in services){
       polCoordinates.push(services[x].location);
-    }
+    } */
+
+    polCoordinates.push(services.location);
 
     //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
 
