@@ -32,7 +32,7 @@ var polCoordinates = [];
 
     var nearestCoo = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
 
-    var nearestLoc = services[location.nearestCoo];
+    var nearestLoc = services[nearestCoo];
     res.send("Distance from Current: "+nearestLoc);
     });
   });
