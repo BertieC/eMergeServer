@@ -80,14 +80,14 @@ var polCoordinates = [];
   var index;
   var newIndex;
 
-  myFirebaseRef.child("services").child(emtype).child("serviceIndex").once('value', function(snapshot){
+  myFirebaseRef.child("services").child("policeIndex").once('value', function(snapshot){
      index = snapshot.val();
      console.log("snapshot value: " + index);
      newIndex = index + 1;
      console.log("newIndex: " + newIndex);
 
      var usrRef = myFirebaseRef.child("services").child(emtype).child(newIndex);
-     var indexRef = myFirebaseRef.child("services").child(emtype).child("serviceIndex");
+     var indexRef = myFirebaseRef.child("services").child("policeIndex");
 
      indexRef.set(newIndex);
 
