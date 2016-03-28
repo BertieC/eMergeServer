@@ -33,8 +33,15 @@ var polCoordinates = [];
     var nearestLoc = geolib.findNearest({latitude:usrLat,longitude:usrLong}, polCoordinates, 1);
     var distFromUsr = geolib.getDistance({latitude:usrLat,longitude:usrLong}, nearestLoc);
 
-    res.send("Nearest location- Lat: "+nearestLoc.latitude+" Long: "+nearestLoc.longitude+" Meters from User: "+distFromUsr);
+    console.log("Nearest location- Lat: "+nearestLoc.latitude+" Long: "+nearestLoc.longitude+" Meters from User: "+distFromUsr);
 
+    var nearestService;
+    for(var y in services){
+      if (services[y].location.latitude == nearestLoc.latitude && services[y].location.longitude == nearestLoc.longitude){
+        nearestService = services[y];
+      };
+    };
+    res.send(nearestService);
     });
   });
 
