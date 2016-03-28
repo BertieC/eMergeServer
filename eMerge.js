@@ -79,15 +79,20 @@ var polCoordinates = [];
   var long = req.param("long");
   var index;
   var newIndex;
+  var indexType;
 
-  myFirebaseRef.child("services").child("policeIndex").once('value', function(snapshot){
+  if(emtype == "police"){
+    indexType = "policeIndex";
+  };
+
+  myFirebaseRef.child("services").child(indexType).once('value', function(snapshot){
      index = snapshot.val();
      console.log("snapshot value: " + index);
      newIndex = index + 1;
      console.log("newIndex: " + newIndex);
 
      var usrRef = myFirebaseRef.child("services").child(emtype).child(newIndex);
-     var indexRef = myFirebaseRef.child("services").child("policeIndex");
+     var indexRef = myFirebaseRef.child("services").child(indexType);
 
      indexRef.set(newIndex);
 
