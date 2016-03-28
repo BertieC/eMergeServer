@@ -46,6 +46,7 @@ var serviceLocation = [];
     //communication code must go here!!!
 
     console.log(nearestService);
+    res.send(nearestService);
     });
   });
 
