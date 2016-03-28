@@ -83,8 +83,10 @@ var polCoordinates = [];
 
   if(emtype == "police"){
     indexType = "policeIndex";
-  } else if (emtype =="firedepartment") {
+  } else if (emtype =="firedepartment"){
     indexType = "firedepartmentIndex";
+  } else if (emtype =="ambulance"){
+    indexType = "ambulanceIndex";
   };
 
   myFirebaseRef.child("services").child(indexType).once('value', function(snapshot){
