@@ -9,7 +9,7 @@ var geolib = require("geolib");
 var app = express();
 var Firebase = require("firebase");
 var myFirebaseRef = new Firebase("https://torrid-fire-226.firebaseio.com");
-var polCoordinates = [];
+var serviceLocation = [];
 //just an test call for debugging
   app.get("/test", function(req, res){
     res.send("**********  Server Test **********");
@@ -20,17 +20,18 @@ var polCoordinates = [];
     var usrNum = req.param("phone");
     var usrLat = req.param("lat");
     var usrLong = req.param("long");
+    var emtype = req.param("emtype");
 
-  myFirebaseRef.child("services").child("police").once("value", function(snapshot) {
+  myFirebaseRef.child("services").child(emtype).once("value", function(snapshot) {
     var services = snapshot.val();
 
   for(var x in services){
       var service = services[x].service;
       var location = services[x].location;
-      polCoordinates.push(location);
+      serviceLocation.push(location);
     };
-    console.log(polCoordinates);
-    var nearestLoc = geolib.findNearest({latitude:usrLat,longitude:usrLong}, polCoordinates, 1);
+    console.log(serviceLocation);
+    var nearestLoc = geolib.findNearest({latitude:usrLat,longitude:usrLong}, serviceLocation, 1);
     var distFromUsr = geolib.getDistance({latitude:usrLat,longitude:usrLong}, nearestLoc);
 
     console.log("Nearest location- Lat: "+nearestLoc.latitude+" Long: "+nearestLoc.longitude+" Meters from User: "+distFromUsr);
