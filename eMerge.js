@@ -83,7 +83,7 @@ var polCoordinates = [];
 
   if(emtype == "police"){
     indexType = "policeIndex";
-  } else if (emtype =="firedepartment") {
+  }if (emtype =="firedepartment") {
     indexType = "firedepartmentIndex";
   };
 
