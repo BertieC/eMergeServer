@@ -41,7 +41,10 @@ var polCoordinates = [];
         nearestService = services[y];
       };
     };
-    res.send(nearestService);
+
+    //communication code must go here!!!
+
+    console.log(nearestService);
     });
   });
 
