@@ -25,7 +25,9 @@ var polCoordinates = [];
     var services = snapshot.val();
 
   for(var x in services){
-      polCoordinates.push({services[x].service:{services[x].location}});
+      var service = services[x].service;
+      var location = services[x].location;
+      polCoordinates.push(location);
     };
 
     var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
