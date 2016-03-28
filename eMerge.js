@@ -28,14 +28,12 @@ var polCoordinates = [];
       polCoordinates.push(services[x].location);
     };
 
-    //var distFromCurrent = geolib.getDistance({latitude: usrLat, longitude: usrLong},{latitude: polCoordinates[0].lat, longitude: polCoordinates[0].long});
-
     var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
-    var lat = nearestLoc.latitude;
+    var distFromUsr = geolib.getDistance({latitude: usrLat, longitude: usrLong}, nearestLoc);
 
-      myFirebaseRef.child("services").child("police").child("location").child("latitude").equalTo(lat).on("value", function(snapshot) {
-        console.log(snapshot.val());
-      });
+    res.send("Nearest location- Lat: "+nearestLoc.latitude+" Long: "+nearestLoc.longitude+" Meters from User: "+distFromUsr);
+
+    //add code here
     });
   });
 
