@@ -27,13 +27,11 @@ var polCoordinates = [];
   for(var x in services){
       var service = services[x].service;
       var location = services[x].location;
-      polCoordinates.push(service +':'+ location);
+      polCoordinates.push(location);
     };
     console.log(polCoordinates);
-    var usrLocation = [];
-    usrLocation.push('usrLocation:'+ {latitude:usrLat,longitude:usrLong});
-    var nearestLoc = geolib.findNearest(usrLocation, polCoordinates, 1);
-    var distFromUsr = geolib.getDistance(usrLocation, nearestLoc);
+    var nearestLoc = geolib.findNearest({latitude:usrLat,longitude:usrLong}, polCoordinates, 1);
+    var distFromUsr = geolib.getDistance({latitude:usrLat,longitude:usrLong}, nearestLoc);
 
     res.send("Nearest location- Lat: "+nearestLoc.latitude+" Long: "+nearestLoc.longitude+" Meters from User: "+distFromUsr);
 
