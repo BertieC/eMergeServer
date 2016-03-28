@@ -27,7 +27,7 @@ var polCoordinates = [];
   for(var x in services){
       var service = services[x].service;
       var location = services[x].location;
-      polCoordinates.push('"'+service+'"' : location);
+      polCoordinates.push(service + location);
     };
 
     var nearestLoc = geolib.findNearest({latitude: usrLat,longitude: usrLong}, polCoordinates, 1);
